@@ -40,9 +40,9 @@ Esta biblioteca implementa um sistema de reprodução de sons com diferentes fre
 ## 🚀 Como Usar
 
 1. Clone este repositório e adicione os arquivos ao seu projeto BitdogLab.
-3. Compile o projeto com o SDK da Raspberry Pi Pico W.
-4. Faça o upload para a placa.
-5. Utilize um monitor serial para acompanhar os logs.
+2. Compile o projeto com o SDK da Raspberry Pi Pico W.
+3. Faça o upload para a placa.
+4. Utilize um monitor serial para acompanhar os logs.
 
 ---
 
