@@ -46,10 +46,10 @@ void button_callback(uint gpio, uint32_t events) {
     if (gpio == BUTTONA_PIN && (events & GPIO_IRQ_EDGE_FALL)) {
         if (current_time - last_button_a_press >= debounce_delay) {
             last_button_a_press = current_time;
-            printf("BOTÃO A FOI APERTADO\n");
+            printf("BOTAO A FOI APERTADO\n");
             current_frequency_index = (current_frequency_index + 1) % num_frequencies;
             pwm_init_buzzer(BUZZER_PIN); // Atualiza a frequência do buzzer
-            printf("Frequência atual: %uHz, Cor: %s\n", buzzer_frequencies[current_frequency_index], buzzer_colors[current_frequency_index]);
+            printf("Frequencia atual: %uHz, Cor: %s\n", buzzer_frequencies[current_frequency_index], buzzer_colors[current_frequency_index]);
         }
     }
 
@@ -57,12 +57,12 @@ void button_callback(uint gpio, uint32_t events) {
     if (gpio == BUTTONB_PIN && (events & GPIO_IRQ_EDGE_FALL)) {
         if (current_time - last_button_b_press >= debounce_delay) {
             last_button_b_press = current_time;
-            printf("BOTÃO B FOI APERTADO\n");
+            printf("BOTAO B FOI APERTADO\n");
             buzzer_active = !buzzer_active; // Alterna entre ativado/desativado
             if (!buzzer_active) {
-                printf("O BUZZER ESTÁ DESATIVADO\n");
+                printf("O BUZZER ESTA DESATIVADO\n");
             } else {
-                printf("O BUZZER ESTÁ ATIVADO\n");
+                printf("O BUZZER ESTA ATIVADO\n");
             }
         }
     }
@@ -82,9 +82,10 @@ int main() {
     gpio_set_dir(BUTTONB_PIN, GPIO_IN);
     gpio_pull_up(BUTTONB_PIN);
     gpio_set_irq_enabled_with_callback(BUTTONB_PIN, GPIO_IRQ_EDGE_FALL, true, &button_callback);
-
+    printf("INICIOS DOS TESTES\n");
     // Exibe a frequência e a cor do buzzer inicial
-    printf("Buzzer inicializado na frequência: %uHz, Cor: %s\n", buzzer_frequencies[current_frequency_index], buzzer_colors[current_frequency_index]);
+    printf("Buzzer inicializado na frequencia: %uHz, Cor: %s\n", buzzer_frequencies[current_frequency_index], buzzer_colors[current_frequency_index]);
+    prinf("APERTE O BOTAO A PARA MUDAR A FREQUENCIA E O BOTAO B PARA PAUSAR\n");
 
     while (true) {
         beep(BUZZER_PIN);
