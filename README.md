@@ -2,21 +2,22 @@
 
 Este repositório contém três bibliotecas principais que se concentram na **geração de sinais Morse** e **análise de ruído colorido**. Cada biblioteca serve a um propósito distinto, mas todas estão interconectadas no contexto de geração de sinais e manipulação de dados. As bibliotecas estão organizadas da seguinte forma:
 
-- **morse-code-message**: Converte texto para código Morse e emite os sinais usando um buzzer.
-- **manual-morse-code**: Permite a interação manual para a emissão de sinais Morse através de botões.
-- **colored-noise**: Gera ruído colorido e contém um script `logs.py` para registrar os dados recebidos via comunicação serial.
+
+- **[morse-code-message](./morse-code-message.md)**: Converte texto para código Morse e emite os sinais usando um buzzer.
+- **[manual-morse-code](./manual-morse-code.md)**: Permite a interação manual para a emissão de sinais Morse através de botões.
+- **[colored-noise](./colored-noise.md)**: Gera ruído colorido e contém um script `logs.py` para registrar os dados recebidos via comunicação serial.
 
 ---
 
 ## 📂 Estrutura do Repositório
 
-### 1. **[morse-code-message](#morse-code-message)**
+### 1. **[morse-code-message](./morse-code-message.md)**
 Biblioteca em C que converte uma mensagem em texto para código Morse e emite os sinais correspondentes usando um buzzer.
 
-### 2. **[manual-morse-code](#manual-morse-code)**
+### 2. **[manual-morse-code](./manual-morse-code.md)**
 Biblioteca em C que permite ao usuário gerar sinais Morse manualmente, pressionando botões para emitir pontos e traços.
 
-### 3. **[colored-noise](#colored-noise)**
+### 3. **[colored-noise](./colored-noise.md)**
 Biblioteca que gera ruído colorido e inclui um script **`logs.py`** em Python para capturar dados recebidos via comunicação serial e registrá-los em arquivos de log.
 
 ---
