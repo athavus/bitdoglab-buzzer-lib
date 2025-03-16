@@ -1,6 +1,6 @@
 # 📚 Repositório de Bibliotecas para Sinais Morse e Geração de Ruído Colorido
 
-Este repositório contém três bibliotecas principais que se concentram na **geração de sinais Morse** e **análise de ruído colorido**. Cada biblioteca serve a um propósito distinto, mas todas estão interconectadas no contexto de geração de sinais e manipulação de dados. As bibliotecas estão organizadas da seguinte forma:
+Este repositório contém uma biblioteca para o uso do buzzer na raspberry pi pico w da plataforma bitdoglab com algumas demos que se concentram na **geração de sinais Morse** e **análise de ruído colorido**. Cada biblioteca serve a um propósito distinto, mas todas estão interconectadas no contexto de geração de sinais e manipulação de dados. As bibliotecas estão organizadas da seguinte forma:
 
 
 - **[morse-code-message](./morse-code-message.md)**: Converte texto para código Morse e emite os sinais usando um buzzer.
