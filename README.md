@@ -1,3 +1,6 @@
+AVISO À QUEM FOR UTILIZAR ESSE REPOSITÓRIO ANTES DE TUDO!!
+- Importe como Pico Project a pasta colored-noise após clonar a biblioteca, as outras duas pastas são apenas exemplos de teste que você pode usar também para usufruir da biblioteca.
+
 # 📚 Repositório de Bibliotecas para Sinais Morse e Geração de Ruído Colorido
 
 Este repositório contém uma biblioteca para o uso do buzzer na raspberry pi pico w da plataforma bitdoglab com algumas demos que se concentram na **geração de sinais Morse** e **análise de ruído colorido**. Cada biblioteca serve a um propósito distinto, mas todas estão interconectadas no contexto de geração de sinais e manipulação de dados. As bibliotecas estão organizadas da seguinte forma:
