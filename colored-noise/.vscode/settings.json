@@ -38,7 +38,8 @@
     "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
     "files.associations": {
         "stdlib.h": "c",
-        "clocks.h": "c"
+        "clocks.h": "c",
+        "buzzer_functions.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

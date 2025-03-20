@@ -100,7 +100,7 @@ int main() {
     stdio_init_all();
     pwm_init_buzzer(BUZZER_PIN);
     
-    const char *message = "VINICIUS LOURENÇO RANGEL";
+    const char *message = "ANTONIO";
     printf("Mensagem a ser convertida: %s\n", message);  // Log da mensagem a ser convertida
     play_morse(message);
     
