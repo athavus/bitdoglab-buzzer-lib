@@ -1,50 +1,75 @@
-AVISO À QUEM FOR UTILIZAR ESSE REPOSITÓRIO ANTES DE TUDO!!
-- Importe como Pico Project a pasta colored-noise após clonar a biblioteca, as outras duas pastas são apenas exemplos de teste que você pode usar também para usufruir da biblioteca.
+# 📦 Biblioteca `colored-noise` - Buzzer para BitdogLab (RP2040)
 
-# 📚 Repositório de Bibliotecas para Sinais Morse e Geração de Ruído Colorido
-
-Este repositório contém uma biblioteca para o uso do buzzer na raspberry pi pico w da plataforma bitdoglab com algumas demos que se concentram na **geração de sinais Morse** e **análise de ruído colorido**. Cada biblioteca serve a um propósito distinto, mas todas estão interconectadas no contexto de geração de sinais e manipulação de dados. As bibliotecas estão organizadas da seguinte forma:
-
-
-- **[morse-code-message](./morse-code-message.md)**: Converte texto para código Morse e emite os sinais usando um buzzer.
-- **[manual-morse-code](./manual-morse-code.md)**: Permite a interação manual para a emissão de sinais Morse através de botões.
-- **[colored-noise](./colored-noise.md)**: Gera ruído colorido e contém um script `logs.py` para registrar os dados recebidos via comunicação serial.
+Esta biblioteca implementa um sistema de reprodução de sons com diferentes frequências associadas a **"cores de ruído"** (branco, rosa, marrom, azul, violeta), utilizando um buzzer controlado por PWM. Ela permite interação por botões físicos para alternar entre frequências ou pausar o som.
 
 ---
 
-## 📂 Estrutura do Repositório
+## 🧠 Funcionalidades
 
-### 1. **[morse-code-message](./morse-code-message.md)**
-Biblioteca em C que converte uma mensagem em texto para código Morse e emite os sinais correspondentes usando um buzzer.
-
-### 2. **[manual-morse-code](./manual-morse-code.md)**
-Biblioteca em C que permite ao usuário gerar sinais Morse manualmente, pressionando botões para emitir pontos e traços.
-
-### 3. **[colored-noise](./colored-noise.md)**
-Biblioteca que gera ruído colorido e inclui um script **`logs.py`** em Python para capturar dados recebidos via comunicação serial e registrá-los em arquivos de log.
+- Reproduz sons no buzzer em diferentes frequências (cores de ruído).
+- Alternância entre frequências usando o **Botão A**.
+- Pausa e retomada do som usando o **Botão B**.
+- Utiliza interrupções com debounce para os botões.
+- Saída de informações pelo terminal serial (via USB).
+- Captura automática de logs da porta serial via script Python.
 
 ---
 
-## 📝 Funcionalidades
+## 📌 Pinos Utilizados
 
-### **1. morse-code-message**
-A biblioteca **morse-code-message** converte uma string de texto para código Morse e emite os sinais correspondentes (ponto e traço) usando um buzzer conectado à Raspberry Pi Pico W.
+| Componente | GPIO |
+|------------|------|
+| Buzzer     | 21   |
+| Botão A    | 5    |
+| Botão B    | 6    |
 
-- Converte caracteres alfanuméricos em código Morse.
-- Emite sinais de ponto (beep curto) e traço (beep longo) com uma pausa adequada entre cada caractere.
-- Permite que uma mensagem inteira seja convertida e tocada em código Morse.
+---
 
-### **2. manual-morse-code**
-A biblioteca **manual-morse-code** permite que o usuário emita sinais Morse manualmente por meio de dois botões conectados à Raspberry Pi Pico W:
+## 🎵 Tabela de Frequências e Cores
 
-- Pressione um botão para gerar um ponto (beep curto).
-- Pressione o outro botão para gerar um traço (beep longo).
-- O código utiliza PWM para controlar o buzzer e emite sinais de acordo com o tempo de pressionamento.
+| Cor do Ruído | Frequência (Hz) |
+|--------------|------------------|
+| Branco       | 2500             |
+| Rosa         | 800              |
+| Marrom       | 400              |
+| Azul         | 3500             |
+| Violeta      | 4500             |
 
-### **3. colored-noise**
-A biblioteca **colored-noise** é responsável por gerar diferentes tipos de ruído colorido (ruído branco, rosa, entre outros), com aplicação em sistemas de áudio e simulações de sinal. Além disso, inclui um script **`logs.py`** que captura os dados recebidos de uma placa via comunicação serial (neste caso da Raspberry Pi Pico W) e os registra em um arquivo de log:
+---
 
-- Gera ruído colorido de várias frequências.
-- Inclui um script Python para registrar os dados de entrada e armazená-los em um arquivo de log.
+## 🚀 Como Usar
+
+1. Clone este repositório e adicione os arquivos ao seu projeto BitdogLab.
+2. Compile o projeto com o SDK da Raspberry Pi Pico W.
+3. Faça o upload para a placa.
+4. Utilize um monitor serial para acompanhar os logs.
+
+---
+
+## 📁 Arquivos
+
+### `lib-buzzer.c`
+
+Contém toda a lógica de controle de PWM, interrupções dos botões e funcionamento do buzzer.
+
+### `logs.py`
+
+Script Python auxiliar que escuta a porta serial da placa e salva todos os logs recebidos em um arquivo `.txt`. Muito útil para debug ou análise posterior.
+
+#### ⚙️ Configurações:
+
+No início do arquivo `logs.py`, você pode configurar:
+
+```python
+PORTA = 'COM7'                # Altere para a porta correta do seu sistema
+BAUD = 115200                 # Deve bater com o baudrate definido no código em C
+ARQUIVO_LOG = 'logs_buzzer.txt'  # Nome do arquivo de saída
+
+---
+
+## 🧪 Comandos de Interação
+
+- **Aperte o botão A**: Alterna entre as cores/frequências de ruído.
+- **Aperte o botão B**: Ativa ou desativa o som emitido pelo buzzer.
 
 ---
